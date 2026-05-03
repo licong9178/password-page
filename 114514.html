@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>需要密码</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif;}
+body{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#f5f5f5;
+}
+.box{
+    background:#fff;
+    padding:40px 60px;
+    border-radius:12px;
+    box-shadow:0 0 15px #ddd;
+    text-align:center;
+}
+h2{margin-bottom:25px;color:#333;}
+#pwd{
+    width:220px;
+    height:40px;
+    padding:0 15px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+#enterBtn{
+    margin-top:20px;
+    width:220px;
+    height:40px;
+    background:#2488ff;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <h2>请输入访问密码</h2>
+    <input type="password" id="pwd" placeholder="请输入密码">
+    <button id="enterBtn">确认进入</button>
+</div>
+
+<script>
+// 在这里改你自己的密码
+let truePwd = "13720305478";
+// 在这里改进去之后显示的那行文字
+let showText = "压缩包的密码是：abcqwertyuiop789，快去文件夹里吧！";
+
+document.getElementById("enterBtn").onclick = function(){
+    let inputPwd = document.getElementById("pwd").value;
+    if(inputPwd === truePwd){
+        // 密码正确，清空页面，显示文字
+        document.body.innerHTML = `
+        <div style="font-size:24px;color:#222;">${showText}</div>
+        `;
+    }else{
+        alert("密码错误，请重新输入");
+    }
+}
+</script>
+</body>
+</html>
+
